@@ -1,0 +1,12 @@
+#!bin/sh
+
+read -p "What is the username ? " username
+
+pkill -u $username
+# kill processes whose effective user ID is listed
+sudo userdel $username
+
+sudo userdel -r $username
+# remove files in the user's home directory
+
+rm -rf /home/$username

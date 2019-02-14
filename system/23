@@ -1,0 +1,9 @@
+En graphique :
+demarrer la VM
+	choisir son login;
+	entrer son mot de passe;
+En ssh :
+taper depuis la VM ip addr show, recuperer l'IP inet ex:10.13.0.89
+	username@127.0.0.1;
+	=> ex : username@10.13.0.89;
+	entrer son mot de passe;

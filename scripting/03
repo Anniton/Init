@@ -1,0 +1,79 @@
+#!/bin/bash
+
+p1[0]="Je te trouve mignon"
+p1[1]="T'es pas moche"
+p1[2]="On s'entend bien"
+p1[3]="On est très bons amis"
+p1[4]="T'es quelqu'un d'intelligent"
+p1[5]="On a vécu beaucoup de choses ensemble"
+p1[6]="Je t'aime bien,"
+p2[0]="mais t'as mauvaise haleine,"
+p2[1]="mais ton frère est un peu mieux que toi,"
+p2[2]="mais je me tape ton père depuis deux mois,"
+p2[3]="mais je suis lesbienne,"
+p2[4]="mais je suis escorte,"
+p2[5]="mais je me tape ta mère depuis deux mois,"
+p2[6]="mais je vois rien d'autre,"
+p3[0]="donc,"
+p3[1]="alors,"
+p3[2]="et comme la situation ne va pas changer,"
+p3[3]="et comme j'ai quelques penchants zoophiles,"
+p3[4]="et comme j'ai des MST,"
+p3[5]="et comme en plus je fais le tapin pour arrondir mes fins de mois,"
+p3[6]="et comme en plus je suis sure qur t'es un gay refoule,"
+p4[0]="c'est mieux que je me masturbe,"
+p4[1]="mes doigts resteront avec mon vibromasseur, un meilleur partenaire sexuel,"
+p4[2]="tu vas devoir recommencer a vivre seul"
+p4[3]="tu devrais commencer a m'oublier,"
+p4[4]="tu devrais te contenter de te remémorer les bons moments qu'o a eu ensemble,"
+p4[5]="tu devrais te recentrer sur toi,"
+p4[6]="il va falloir qu'on arrete de se parler,"
+p5[0]="sinon je vais me voir dans l'obligation de detruire toute les preuves,"
+p5[1]="puisque tu commence a me saouler,"
+p5[2]="vu que de penser a toi me provoque des relants,"
+p5[3]="comme de toute façon on arien a se dire,"
+p5[4]="vu que le seul motif qui me rapprochait de toi était le fric,"
+p5[5]="sinon je te castre avec les dents,"
+p5[6]="puisque la seule chose qui va me manquer c'est ton chien,"
+p6[0]="et comme tu serais capable d'aimer ça,"
+p6[1]="et pour bien te dégouter,"
+p6[2]="et pour en finir avec ta misérable personne,"
+p6[3]="et comme j'ai envie de me défouler,"
+p6[4]="et de toute façon,"
+p7[0]="je t'annonce que je suis devenue lesbienne grace a toi."
+p7[1]="je t'informe que je t'ai toujours detesté."
+p7[2]="il faut que je te dise que je garde la bague quand meme."
+p7[3]="je vais tout de même continuer de profiter de ton compte Netflix."
+p7[4]="je t'annonce que je sors avec ton meilleur pote."
+p7[5]="j'ai oublié de te dire que je suis un non-binaire."
+p7[6]="tu es trop bien pour moi..."
+
+Retour=0
+
+Bold="\e[34m"
+Null="\e[0;0m"
+i=36
+
+for host in "$@"
+do
+		if ping -c1 -w10 "${host}" > /dev/null 2>&1
+		then
+				echo -e "${NULL}\e[1m\c"
+				echo -e "${bold}${host}${Null}\c"
+				echo -e "\e[${i}m \c"
+				echo "[OK]"
+				ale=$[ $RANDOM % 5 ]
+				rand=$[ $RANDOM % 7 ]
+
+				echo ${p1[$rand]} ${p2[$rand]} ${p3[$rand]} ${p4[$rand]} ${p5[$rand]} ${p6[$ale]} ${p7[$rand]} | tr "\n" " "
+				echo ""
+
+				echo -e "${Null}\e[1m\c"
+		else
+				echo -e "${host}\e "${Null}"[Doesn't exist, I don't want to pong you back]"
+				retour=1
+		fi
+		i=$((i-1))
+done
+
+exit ${retour}
